@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_one_attached :image
   enum role: [:super_admin, :admin, :employee]
 	after_initialize :set_default_role, :if => :new_record?
 

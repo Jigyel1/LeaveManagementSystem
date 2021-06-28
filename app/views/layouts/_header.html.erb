@@ -11,19 +11,29 @@
         </li>
 
       <% if current_user %>
-      <% if current_user.super_admin? || current_user.admin? %>
+      <% if current_user.super_admin? %>
           <li class="nav-item">
             <a class="nav-link" style="color:white;" href="/users">User Management</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" style="color:white;"  href="#">Leave Management</a>
           </li>
-        <%elsif current_user.admin? || current_user.employee?%>
+        <%elsif current_user.admin?%>
+          <li class="nav-item">
+            <a class="nav-link" style="color:white;" href="/users">User Management</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="color:white;"  href="#">Leave Management</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" style="color:white;" href="/profile/index">Profile</a>
           </li>
+          <%else%>
+            <li class="nav-item">
+              <a class="nav-link" style="color:white;" href="/profile/index">Profile</a>
+            </li>
         <%end%>
-        <% end %>
+      <% end %>
 
         <% if current_user %>
         <li class="nav-item dropdown">
@@ -32,7 +42,7 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
           <%if current_user.super_admin? %>
-            <li><a class="dropdown-item" href="#">Account</a></li>
+            <li><a class="dropdown-item" href="\users\edit">Account</a></li>
             <li><hr class="dropdown-divider"></li>
             <%end%>
             <li> <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
