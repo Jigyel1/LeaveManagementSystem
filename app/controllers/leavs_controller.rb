@@ -1,4 +1,5 @@
 class LeavsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_leav, only: %i[ show edit update destroy ]
 
   # GET /leavs or /leavs.json
@@ -22,7 +23,7 @@ class LeavsController < ApplicationController
   # POST /leavs or /leavs.json
   def create
     @leav = Leav.new(leav_params)
-
+    @leav.user_id = current_user.id
     respond_to do |format|
       if @leav.save
         format.html { redirect_to @leav, notice: "Leav was successfully created." }
@@ -64,6 +65,6 @@ class LeavsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def leav_params
-      params.require(:leav).permit(:leave_type, :start_date, :end_date, :duration, :reason, :status, :feedback)
+      params.require(:leav).permit(:leave_type, :start_date, :end_date, :duration, :reason)
     end
 end
