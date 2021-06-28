@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Leavs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Leave type</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Duration</th>
+      <th>Reason</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @leavs.each do |leav| %>
+      <tr>
+        <td><%= leav.leave_type %></td>
+        <td><%= leav.start_date %></td>
+        <td><%= leav.end_date %></td>
+        <td><%= leav.duration %></td>
+        <td><%= leav.reason %></td>
+        <td><%= link_to 'Show', leav %></td>
+        <td><%= link_to 'Edit', edit_leav_path(leav) %></td>
+        <td><%= link_to 'Destroy', leav, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Leav', new_leav_path %>

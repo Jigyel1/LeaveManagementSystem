@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  leave_type: MyString
+  start_date: 2021-06-27
+  end_date: 2021-06-27
+  duration: 
+  reason: MyString
+  status: 1
+  feedback: MyString
+
+two:
+  leave_type: MyString
+  start_date: 2021-06-27
+  end_date: 2021-06-27
+  duration: 
+  reason: MyString
+  status: 1
+  feedback: MyString

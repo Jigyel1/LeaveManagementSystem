@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Leave type:</strong>
+  <%= @leav.leave_type %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @leav.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @leav.end_date %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @leav.duration %>
+</p>
+
+<p>
+  <strong>Reason:</strong>
+  <%= @leav.reason %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @leav.status %>
+</p>
+
+<p>
+  <strong>Feedback:</strong>
+  <%= @leav.feedback %>
+</p>
+
+<%= link_to 'Edit', edit_leav_path(@leav) %> |
+<%= link_to 'Back', leavs_path %>

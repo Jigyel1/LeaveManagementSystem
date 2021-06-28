@@ -1,0 +1,2 @@
+class Leav < ApplicationRecord
+end
