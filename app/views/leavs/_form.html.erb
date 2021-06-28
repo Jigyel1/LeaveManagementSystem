@@ -1,4 +1,6 @@
-<%= form_with(model: leav) do |form| %>
+<%
+=begin%>
+ <%= form_with(model: leav) do |form| %>
   <% if leav.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(leav.errors.count, "error") %> prohibited this leav from being saved:</h2>
@@ -35,8 +37,63 @@
     <%= form.label :reason %>
     <%= form.text_field :reason %>
   </div>
-  
+
   <div class="actions">
     <%= form.submit %>
   </div>
-<% end %>
+<% end %> 
+<%
+=end%>
+ <div class="cotainer">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                    <div class="card" style="padding-left:5%;">
+                        <div class="card-body">
+                        <h2 style="text-align:center;">Apply For Leave</h2>
+                        <br>
+                        <%= form_with(model: leav) do |form| %>
+                                <div class="form-group row">
+                                    <label for="leave_type" class="col-md-4 col-form-label text-md-right">Leave Type</label>
+                                    <div class="col-md-6">
+                                           <%= form.text_field :leave_type, id: "leave_type", class: "form-control" %>
+                                    </div>
+                                </div><br>
+
+                                <div class="form-group row">
+                                    <label for="start_date" class="col-md-4 col-form-label text-md-right">Start Date</label>
+                                    <div class="col-md-6">
+                                           <%= form.date_field :start_date, id: "start_date", class: "form-control" %>
+                                    </div>
+                                </div><br>
+
+                                <div class="form-group row">
+                                    <label for="end_date" class="col-md-4 col-form-label text-md-right">End Date</label>
+                                    <div class="col-md-6">
+                                        <%= form.date_field :end_date, id: "end_date", class: "form-control" %>
+                                    </div>
+                                </div><br>
+
+                                <div class="form-group row">
+                                    <label for="duration" class="col-md-4 col-form-label text-md-right">Duration</label>
+                                    <div class="col-md-6">
+                                        <%= form.number_field :duration, id: "duration", class: "form-control" %>
+                                    </div>
+                                </div><br>
+
+                                <div class="form-group row">
+                                    <label for="reason" class="col-md-4 col-form-label text-md-right">Reason</label>
+                                    <div class="col-md-6">
+                                      <%= form.rich_text_area :reason, id: "reason", class: "form-control" %>
+                                    </div>
+                                </div><br>
+
+                                    <div class="col-md-6 offset-md-4" style="text-align: center;">
+                                            <%= form.submit "Apply", class: "btn btn-primary", style: "width:250px;" %>
+                                    </div>
+                                </div>
+                            <% end %>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
