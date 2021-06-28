@@ -1,35 +1,48 @@
-<p id="notice"><%= notice %></p>
+<div class="container py-4">
+      <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-1">
+            <h1 class="display-5 fw-bold">Leave Inbox</h1>
+            <hr>
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr style="text-align: center;">
+                  <th>Email</th>
+                  <th>Leave type</th>
+                  <th>Start date</th>
+                  <th>End date</th>
+                  <th>Duration</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody style="text-align:center;">
+                <% @leavs.each do |leav| %>
+                      <tr>
+                        <td><%= link_to leav.user.email, leav %></td>
+                        <td><%= leav.leave_type %></td>
+                        <td><%= leav.start_date %></td>
+                        <td><%= leav.end_date %></td>
+                        <td><%= leav.duration %></td>
+                        <%if leav.status == "Pending"%>
+                         <td style="color:blue;"><%= leav.status %></td>
+                        <%elsif leav.status == "Approved"%>
+                          <td style="color:green;"><%= leav.status %></td>
+                        <%else%>
+                          <td style="color:red;"><%= leav.status %></td>
+                        <%end%>
+                        <td>
+                         <%= link_to 'Approve', leav, class: "btn btn-success", data: { confirm: 'Are you sure?' } %>
+                         <%= link_to 'Reject', leav, class: "btn btn-warning", data: { confirm: 'Are you sure?' } %>
+                         <%= link_to 'Give Feedback!', leav, class: "btn btn-primary", data: { confirm: 'Are you sure?' } %>
+                        <%if current_user.super_admin?%>
+                          <%= link_to 'Delete', leav, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+                        <%end%>
+                        </td>
+                      </tr>
+                    <% end %>
+              </tbody>
+            </table>
+        </div>
+      </div>
 
-<h1>Leavs</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Leave type</th>
-      <th>Start date</th>
-      <th>End date</th>
-      <th>Duration</th>
-      <th>Reason</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @leavs.each do |leav| %>
-      <tr>
-        <td><%= leav.leave_type %></td>
-        <td><%= leav.start_date %></td>
-        <td><%= leav.end_date %></td>
-        <td><%= leav.duration %></td>
-        <td><%= leav.reason %></td>
-        <td><%= link_to 'Show', leav %></td>
-        <td><%= link_to 'Edit', edit_leav_path(leav) %></td>
-        <td><%= link_to 'Destroy', leav, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Leav', new_leav_path %>
+    </div>

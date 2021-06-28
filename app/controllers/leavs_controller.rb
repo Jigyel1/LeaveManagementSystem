@@ -1,6 +1,6 @@
 class LeavsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_leav, only: %i[ show edit update destroy ]
+  before_action :set_leav, only: %i[ show edit update destroy approve reject feedback ]
 
   # GET /leavs or /leavs.json
   def index

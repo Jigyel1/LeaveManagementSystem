@@ -114,8 +114,12 @@
                                          <td><%= link_to 'Show', leav %>
                                          <%= link_to 'Edit', edit_leav_path(leav) %>
                                           <%= link_to 'Destroy', leav, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                                        <%else%>
+                                        <%elsif leav.status == "Approved"%>
+                                              <td style="color:green;"><%= leav.status%></td>    
                                               <td><%= link_to 'Show', leav %></td>
+                                        <%else%> 
+                                              <td style="color:green;"><%= leav.status%></td>    
+                                              <td><%= link_to 'Show', leav %></td>             
                                         <%end%>
                                         </tr>
                                       <% end %>

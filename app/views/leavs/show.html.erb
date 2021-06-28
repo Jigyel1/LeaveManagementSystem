@@ -17,9 +17,16 @@
                 <li style="padding:3px;"><strong>End Date</strong> <%= @leav.end_date%></li>
                 <li style="padding:3px;"><strong>Duration</strong> <%= @leav.duration%></li>
                 <li style="padding:3px;"><strong>Reason</strong> <%= @leav.reason%></li>
-                <li style="padding:3px;"><strong>Feedback</strong> <%= @leav.feedback%></li>
+                <%if @leav.status == "Pending"%>
+                <li style="padding:3px; color:blue;"><strong>Status</strong> <%= @leav.status%></li>
+                <%elsif @leav.status == "Approved"%>
+                 <li style="padding:3px; color:green;"><strong>Status</strong> <%= @leav.status%></li>
+                 <li style="padding:3px;"><strong>Feedback</strong> <%= @leav.feedback%></li>
+                <% else %>
+                 <li style="padding:3px; color:red;"><strong>Status</strong> <%= @leav.status%></li>
+                 <li style="padding:3px;"><strong>Feedback</strong> <%= @leav.feedback%></li>
+                <%end%>
             </ul>
         </div>
       </div>
-
     </div>
