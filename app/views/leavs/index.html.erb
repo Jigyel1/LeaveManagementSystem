@@ -31,9 +31,9 @@
                           <td style="color:red;"><%= leav.status %></td>
                         <%end%>
                         <td>
-                         <%= link_to 'Approve', leav, class: "btn btn-success", data: { confirm: 'Are you sure?' } %>
-                         <%= link_to 'Reject', leav, class: "btn btn-warning", data: { confirm: 'Are you sure?' } %>
-                         <%= link_to 'Give Feedback!', leav, class: "btn btn-primary", data: { confirm: 'Are you sure?' } %>
+                         <%= link_to 'Approve', approve_leavs_path(leav), class: "btn btn-success", data: { confirm: 'Are you sure?' } %>
+                         <%= link_to 'Reject', reject_leavs_path(leav), class: "btn btn-warning", data: { confirm: 'Are you sure?' } %>
+                         <%= link_to 'Give Feedback!', feedback_leavs_path(leav), class: "btn btn-primary" %>
                         <%if current_user.super_admin?%>
                           <%= link_to 'Delete', leav, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
                         <%end%>

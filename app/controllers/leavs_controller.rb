@@ -39,8 +39,13 @@ class LeavsController < ApplicationController
   def update
     respond_to do |format|
       if @leav.update(leav_params)
+        if current_user.super_admin? || current_user.super_admin?
+          format.html { redirect_to leavs_path, notice: "Feedback provided Successfully." }
+          format.json { render :show, status: :created, location: @leav }
+        else
         format.html { redirect_to profile_index_path, notice: "Leave Successfully updated." }
         format.json { render :show, status: :ok, location: @leav }
+        end
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @leav.errors, status: :unprocessable_entity }
@@ -62,6 +67,19 @@ class LeavsController < ApplicationController
     end
   end
 
+  def approve
+    @leav.status = 1
+    @leav.save
+    redirect_to leavs_path, notice: "User Notified Successfully!"
+  end
+
+  def reject
+    @leav.status = 2
+    @leav.save
+    redirect_to leavs_path, notice: "User Notified Successfully!"
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_leav
@@ -70,6 +88,6 @@ class LeavsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def leav_params
-      params.require(:leav).permit(:leave_type, :start_date, :end_date, :duration, :reason)
+      params.require(:leav).permit(:leave_type, :start_date, :end_date, :duration, :reason, :feedback)
     end
 end
