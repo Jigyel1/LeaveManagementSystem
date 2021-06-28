@@ -1,55 +1,10 @@
-<%
-=begin%>
- <%= form_with(model: leav) do |form| %>
-  <% if leav.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(leav.errors.count, "error") %> prohibited this leav from being saved:</h2>
-
-      <ul>
-        <% leav.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :leave_type %>
-    <%= form.text_field :leave_type %>
-  </div>
-
-  <div class="field">
-    <%= form.label :start_date %>
-    <%= form.date_select :start_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :end_date %>
-    <%= form.date_select :end_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :duration %>
-    <%= form.number_field :duration %>
-  </div>
-
-  <div class="field">
-    <%= form.label :reason %>
-    <%= form.text_field :reason %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %> 
-<%
-=end%>
  <div class="cotainer">
         <div class="row justify-content-center">
             <div class="col-md-8">
                     <div class="card" style="padding-left:5%;">
                         <div class="card-body">
                         <h2 style="text-align:center;">Apply For Leave</h2>
+                        <hr>
                         <br>
                         <%= form_with(model: leav) do |form| %>
                                 <div class="form-group row">
@@ -79,10 +34,10 @@
                                         <%= form.number_field :duration, id: "duration", class: "form-control" %>
                                     </div>
                                 </div><br>
-
+                                <hr>
                                 <div class="form-group row">
-                                    <label for="reason" class="col-md-4 col-form-label text-md-right">Reason</label>
-                                    <div class="col-md-6">
+                                    <label for="reason" class="col-md-4 col-form-label">Reason</label>
+                                    <div class="col-md-15">
                                       <%= form.rich_text_area :reason, id: "reason", class: "form-control" %>
                                     </div>
                                 </div><br>

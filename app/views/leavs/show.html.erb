@@ -1,39 +1,25 @@
-<p id="notice"><%= notice %></p>
+ <div class="container py-4">
+      <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-1">
+            <h1 class="display-5 fw-bold">Leave Details</h1>
+            <hr>
+            <ul style="list-style-type: none;">
+            <%if current_user.super_admin? || current_user.admin? %>
+            <li style="padding:3px;"><strong>Name:</strong> <%= @leav.user.fname%> <%= @leav.user.lname%></li>
+            <li style="padding:3px;"><strong>Email:</strong> <%= @leav.user.email%></li>
+            <li style="padding:3px;"><strong>DOB:</strong> <%= @leav.user.dob%></li>
+            <li style="padding:3px;"><strong>Phone:</strong> <%= @leav.user.phone%></li>
+            <li style="padding:3px;"><strong>Designation:</strong> <%= @leav.user.designation%></li>
+            <li style="padding:3px;"><strong>Address:</strong> <%= @leav.user.address%></li>
+            <%end%>
+                <li style="padding:3px;"><strong>Leave Type:</strong> <%= @leav.leave_type%></li>
+                <li style="padding:3px;"><strong>Start Date</strong> <%= @leav.start_date%></li>
+                <li style="padding:3px;"><strong>End Date</strong> <%= @leav.end_date%></li>
+                <li style="padding:3px;"><strong>Duration</strong> <%= @leav.duration%></li>
+                <li style="padding:3px;"><strong>Reason</strong> <%= @leav.reason%></li>
+                <li style="padding:3px;"><strong>Feedback</strong> <%= @leav.feedback%></li>
+            </ul>
+        </div>
+      </div>
 
-<p>
-  <strong>Leave type:</strong>
-  <%= @leav.leave_type %>
-</p>
-
-<p>
-  <strong>Start date:</strong>
-  <%= @leav.start_date %>
-</p>
-
-<p>
-  <strong>End date:</strong>
-  <%= @leav.end_date %>
-</p>
-
-<p>
-  <strong>Duration:</strong>
-  <%= @leav.duration %>
-</p>
-
-<p>
-  <strong>Reason:</strong>
-  <%= @leav.reason %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @leav.status %>
-</p>
-
-<p>
-  <strong>Feedback:</strong>
-  <%= @leav.feedback %>
-</p>
-
-<%= link_to 'Edit', edit_leav_path(@leav) %> |
-<%= link_to 'Back', leavs_path %>
+    </div>

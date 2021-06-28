@@ -26,7 +26,7 @@ class LeavsController < ApplicationController
     @leav.user_id = current_user.id
     respond_to do |format|
       if @leav.save
-        format.html { redirect_to @leav, notice: "Leav was successfully created." }
+        format.html { redirect_to profile_index_path, notice: "Leav was successfully created." }
         format.json { render :show, status: :created, location: @leav }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class LeavsController < ApplicationController
   def update
     respond_to do |format|
       if @leav.update(leav_params)
-        format.html { redirect_to @leav, notice: "Leav was successfully updated." }
+        format.html { redirect_to profile_index_path, notice: "Leave Successfully updated." }
         format.json { render :show, status: :ok, location: @leav }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,8 +52,13 @@ class LeavsController < ApplicationController
   def destroy
     @leav.destroy
     respond_to do |format|
-      format.html { redirect_to leavs_url, notice: "Leav was successfully destroyed." }
+      if current_user.employee?
+      format.html { redirect_to profile_index_path, notice: "Deleted Successfully!" }
       format.json { head :no_content }
+      else
+        format.html { redirect_to leavs_url, notice: "Deleted Successfully!" }
+        format.json { head :no_content }
+      end 
     end
   end
 
