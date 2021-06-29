@@ -4,7 +4,7 @@ class LeavsController < ApplicationController
 
   # GET /leavs or /leavs.json
   def index
-    @leavs = Leav.all
+    @leavs = Leav.where(status: "Pending")
     authorize @leavs
   end
 
@@ -90,6 +90,16 @@ class LeavsController < ApplicationController
     authorize @leav
   end
 
+  def approved_leaves
+    @leavs = Leav.where(status: "Approved")
+    authorize @leavs
+  end
+
+  def rejected_leaves
+    @leavs = Leav.where(status: "Rejected")
+    authorize @leavs
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_leav

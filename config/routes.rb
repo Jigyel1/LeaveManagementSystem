@@ -4,6 +4,8 @@ Rails.application.routes.draw do
       get '/approve/:id', to: 'leavs#approve', as: 'approve'
       get '/reject/:id', to: 'leavs#reject', as: 'reject'
       get '/feedback/:id', to: 'leavs#feedback', as: 'feedback'
+      get '/approved_leaves', to: 'leavs#approved_leaves'
+      get '/rejected_leaves', to: 'leavs#rejected_leaves'
     end
   end
   get 'profile/index'

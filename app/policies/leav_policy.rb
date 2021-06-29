@@ -37,5 +37,14 @@ class LeavPolicy
     def feedback?
         @current_user.super_admin? ||  @current_user.admin?
     end
+
+    def approved_leaves?
+        @current_user.super_admin? ||  @current_user.admin?
+    end
+
+    def rejected_leaves?
+        @current_user.super_admin? ||  @current_user.admin?
+    end
+    
     
 end
