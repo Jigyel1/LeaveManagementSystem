@@ -1,23 +1,27 @@
 class LeavsController < ApplicationController
-  before_action :authenticate_user!
+  before_action:authenticate_user!
   before_action :set_leav, only: %i[ show edit update destroy approve reject feedback ]
 
   # GET /leavs or /leavs.json
   def index
     @leavs = Leav.all
+    authorize @leavs
   end
 
   # GET /leavs/1 or /leavs/1.json
   def show
+    authorize @leav
   end
 
   # GET /leavs/new
   def new
     @leav = Leav.new
+    authorize @leav
   end
 
   # GET /leavs/1/edit
   def edit
+    authorize @leav
   end
 
   # POST /leavs or /leavs.json
@@ -39,7 +43,7 @@ class LeavsController < ApplicationController
   def update
     respond_to do |format|
       if @leav.update(leav_params)
-        if current_user.super_admin? || current_user.super_admin?
+        if current_user.super_admin? || current_user.admin?
           format.html { redirect_to leavs_path, notice: "Feedback provided Successfully." }
           format.json { render :show, status: :created, location: @leav }
         else
@@ -56,6 +60,7 @@ class LeavsController < ApplicationController
   # DELETE /leavs/1 or /leavs/1.json
   def destroy
     @leav.destroy
+    authorize @leav
     respond_to do |format|
       if current_user.employee?
       format.html { redirect_to profile_index_path, notice: "Deleted Successfully!" }
@@ -68,17 +73,22 @@ class LeavsController < ApplicationController
   end
 
   def approve
+    authorize @leav
     @leav.status = 1
     @leav.save
     redirect_to leavs_path, notice: "User Notified Successfully!"
   end
 
   def reject
+    authorize @leav
     @leav.status = 2
     @leav.save
     redirect_to leavs_path, notice: "User Notified Successfully!"
   end
 
+  def feedback
+    authorize @leav
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

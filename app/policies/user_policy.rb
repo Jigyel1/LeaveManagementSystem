@@ -7,7 +7,7 @@ class UserPolicy
   end
 
   def index?
-    @current_user.super_admin? || @current_user.admin?
+    @current_user.super_admin? || @current_user.admin? 
   end
 
   def show?
