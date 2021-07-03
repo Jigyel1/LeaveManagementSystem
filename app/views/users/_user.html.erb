@@ -6,6 +6,6 @@
     <%= f.select(:role, User.roles.keys.map {|role| [role.titleize,role]}) %>
     <td>
     <%= f.submit 'Change Role', class: "btn btn-success"%>
-    <%= link_to("Delete user", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'button') unless user == current_user %>
+    <%= link_to("Delete", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-danger') unless user == current_user %>
     </td>
   <% end %>

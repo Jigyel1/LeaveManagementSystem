@@ -1,0 +1,85 @@
+ <div class="cotainer">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                    <div class="card" style="padding-left:5%;">
+                        <div class="card-body">
+                        <h2 style="text-align:center;">Add New User</h2>
+                        <br>
+                        <%= form_with url: "/users/users/new/create", method: :post do |f| %>
+                                <div class="form-group row">
+                                    <label for="fname" class="col-md-4 col-form-label text-md-right">First Name</label>
+                                    <div class="col-md-6">
+                                           <%= f.text_field :fname, id: "fname", class: "form-control" %>
+                                    </div>
+                                </div><br>
+
+                                <div class="form-group row">
+                                    <label for="lname" class="col-md-4 col-form-label text-md-right">Last Name</label>
+                                    <div class="col-md-6">
+                                        <%= f.text_field :lname, id: "lname", class: "form-control" %>
+                                    </div>
+                                </div><br>
+
+                                <div class="form-group row">
+                                    <label for="dob" class="col-md-4 col-form-label text-md-right">DOB</label>
+                                    <div class="col-md-6">
+                                        <%= f.date_field :dob, id: "dob", class: "form-control" %>
+                                    </div>
+                                </div><br>
+
+                                <div class="form-group row">
+                                    <label for="phone" class="col-md-4 col-form-label text-md-right">Phone</label>
+                                    <div class="col-md-6">
+                                      <%= f.text_field :phone, id: "phone", class: "form-control" %>
+                                    </div>
+                                </div><br>
+
+                                <div class="form-group row">
+                                    <label for="designation" class="col-md-4 col-form-label text-md-right">Designation</label>
+                                    <div class="col-md-6">
+                                        <%= f.text_field :designation, id: "designation", class: "form-control" %>
+                                    </div>
+                                </div><br>
+
+                                <div class="form-group row">
+                                    <label for="address" class="col-md-4 col-form-label text-md-right">Address</label>
+                                    <div class="col-md-6">
+                                        <%= f.text_field :address, id: "address", class: "form-control" %>
+                                    </div>
+                                </div><br>
+
+                                <div class="form-group row">
+                                    <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
+                                    <div class="col-md-6">
+                                        <%= f.email_field :email, autofocus: true, autocomplete: "email", id: "email", class: "form-control" %>
+                                    </div>
+                                </div><br>
+
+                                <div class="form-group row">
+                                    <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
+                                    <div class="col-md-6">
+                                      <% if @minimum_password_length %>
+                                         <em>(<%= @minimum_password_length %> characters minimum)</em>
+                                      <% end %><br />
+                                      <%= f.password_field :password, autocomplete: "new-password", class: "form-control", id: "password" %>
+                                    </div>
+                                </div> <br>
+
+                                <div class="form-group row">
+                                    <label for="con_pass" class="col-md-4 col-form-label text-md-right">Confirm Password</label>
+                                    <div class="col-md-6">
+                                       <%= f.password_field :password_confirmation, autocomplete: "new-password", id: "con_pass", class: "form-control" %>
+                                    </div>
+                                </div><br>
+
+
+                                    <div class="col-md-6 offset-md-4" style="text-align: center;">
+                                            <%= f.submit "Add New User", class: "btn btn-primary", style: "width:250px;" %>
+                                    </div>
+                                </div>
+                            <% end %>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
