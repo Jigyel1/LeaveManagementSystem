@@ -1,0 +1,71 @@
+// Place all the styles related to the Notifications controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+#r{
+    margin:auto;
+    padding: 30px;
+    width: 80%;
+    display: flex;
+    flex-flow: column;
+    #c{
+      width: 100%;
+      margin-bottom: 5px;
+      display: block;
+      transition: opacity 0.3s;
+    }
+  }
+  
+  
+  #cb{
+    padding: 0.5rem;
+    table{
+      width: 100%;
+      tr{
+        display:flex;
+        td{
+          a.btn{
+            font-size: 0.8rem;
+            padding: 3px;
+          }
+        }
+        td:nth-child(2){
+          text-align:right;
+          justify-content: space-around;
+        }
+      }
+    }
+    
+  }
+  
+  #ct:before{
+    display:inline-block;
+    font-family: 'Font Awesome\ 5 Free';
+    font-weight:900;
+    font-size: 1.1rem;
+    text-align: center;
+    border: 2px solid grey;
+    border-radius: 100px;
+    width: 30px;
+    height: 30px;
+    padding-bottom: 3px;
+    margin-right: 10px;
+  }
+  
+  .notification-danger {
+    #cb {
+      #ct:before {
+        color: red;
+        border-color: #FFAB91;
+        content: "\f00d";
+      }
+    }
+  }
+  
+  #c.display-none{
+    display: none;
+    transition: opacity 2s;
+  }
+  
+  

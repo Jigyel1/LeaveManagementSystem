@@ -4,7 +4,7 @@
             <div class="col-md-4 mb-3">
               <div class="card">
                 <div class="card-body">
-                <h3 style="text-align:center;">User P rofile</h3>
+                <h3 style="text-align:center;">User Profile</h3>
 
                   <div class="d-flex flex-column align-items-center text-center">
                         <% if @user.image.attached? %>
@@ -24,15 +24,15 @@
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                     <h6 class="mb-0" style="color:green;">Approved Leave</h6>
-                    <span class="text-secondary">1</span>
+                    <span class="text-secondary"><%=Leav.where(user_id: current_user.id, status: "Approved").count()%></span>
                   </li>
                   <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                     <h6 class="mb-0" style="color:red;">Rejected Leave</h6>
-                    <span class="text-secondary">1</span>
+                    <span class="text-secondary"><%=Leav.where(user_id: current_user.id, status: "Rejected").count()%></span>
                   </li>
                   <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                     <h6 class="mb-0" style="color:blue;">No of Leave Taken:</h6>
-                    <span class="text-secondary">1</span>
+                    <span class="text-secondary"><%=Leav.where(user_id: current_user.id, status: "Approved").count()%></span>
                   </li>
                 </ul>
               </div>

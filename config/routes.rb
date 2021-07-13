@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :notifications do
+    collection do
+      get '/mark_read', to: 'notifications#mark_as_read', as: "read"
+    end
+  end
   resources :leavs do
     collection do
       get '/approve/:id', to: 'leavs#approve', as: 'approve'

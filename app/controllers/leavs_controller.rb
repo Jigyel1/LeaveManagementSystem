@@ -4,7 +4,7 @@ class LeavsController < ApplicationController
 
   # GET /leavs or /leavs.json
   def index
-    @leavs = Leav.where(status: "Pending")
+    @leavs = Leav.where(status: "Pending").order('created_at ASC')
     authorize @leavs
   end
 
@@ -76,6 +76,7 @@ class LeavsController < ApplicationController
     authorize @leav
     @leav.status = 1
     @leav.save
+    Notification.create(recipient: @leav.user, actor: current_user, action: "Approved", notifiable: @leav)
     redirect_to leavs_path, notice: "User Notified Successfully!"
   end
 
@@ -83,6 +84,7 @@ class LeavsController < ApplicationController
     authorize @leav
     @leav.status = 2
     @leav.save
+    Notification.create(recipient: @leav.user, actor: current_user, action: "Rejected", notifiable: @leav)
     redirect_to leavs_path, notice: "User Notified Successfully!"
   end
 
@@ -91,12 +93,12 @@ class LeavsController < ApplicationController
   end
 
   def approved_leaves
-    @leavs = Leav.where(status: "Approved")
+    @leavs = Leav.where(status: "Approved").order('created_at DESC')
     authorize @leavs
   end
 
   def rejected_leaves
-    @leavs = Leav.where(status: "Rejected")
+    @leavs = Leav.where(status: "Rejected").order('created_at DESC')
     authorize @leavs
   end
   

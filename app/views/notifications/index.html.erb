@@ -1,0 +1,36 @@
+<div class="row notification-container" id="r">
+  <h2 class="text-center">My Notifications</h2>
+  <hr>
+  <p class="dismiss text-right"><a class="btn btn-dark" href="/notifications/mark_read">Mark All As Read!</a></p>
+  <% Notification.where(recipient: current_user).unread.each do |notification|%>
+  <div class="card notification-card notification-danger"  id="c">
+    <div class="card-body" id="cb">
+       <table>
+        <tr>
+          <td style="width:70%"><div class="card-title" id="ct">Your Leave has been' <b> <%=notification.action %></b>'!</div></td>
+          <td style="width:30%">
+            <a href="/profile/index" class="btn btn-primary">View</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <br>
+  <%end%>
+
+
+  <% Notification.where(recipient: current_user).each do |notification|%>
+  <div class="card notification-card notification-danger"  id="c">
+    <div class="card-body">
+       <table>
+        <tr>
+          <td>No New Notifications!</td>
+          <%break;%>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <br>
+  <%end%>
+
+</div>
