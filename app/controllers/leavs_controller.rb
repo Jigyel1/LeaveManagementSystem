@@ -1,5 +1,6 @@
 class LeavsController < ApplicationController
   before_action:authenticate_user!
+  after_action :verify_authorized
   before_action :set_leav, only: %i[ show edit update destroy approve reject feedback ]
 
   # GET /leavs or /leavs.json
