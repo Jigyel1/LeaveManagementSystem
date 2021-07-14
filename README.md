@@ -10,5 +10,10 @@
 1. git clone https://github.com/Jigyel1/LeaveManagementSystem.git
 2. bundle exec rails webpacker:install
 3. Run Migration: rake db:migrate
-4. start Server: rails s
+4. Seeding: rails db:seed
+5. start Server: rails s
+
+# Credentials
+1. Super_Admin: Email-> admin@admin.com , Password -> admin@123
+2. An Employee: Email-> tester1@gmail.com , Password -> test@123
 
