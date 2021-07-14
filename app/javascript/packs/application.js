@@ -7,6 +7,7 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import '@client-side-validations/client-side-validations'
 
 Rails.start()
 Turbolinks.start()
@@ -14,5 +15,4 @@ ActiveStorage.start()
 require("trix")
 require("@rails/actiontext")
 require('jquery')
-require('coffee')
-require('notifications.js.coffee')
+require('@client-side-validations/client-side-validations')

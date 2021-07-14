@@ -14,12 +14,20 @@ class LeavPolicy
         @current_user.employee?
     end
 
+    def create?
+        @current_user.employee?
+    end
+
     def show?
         @current_user.super_admin? ||  @current_user.admin? || @current_user.employee?
     end
     
     def edit?
          @current_user.employee?
+    end
+
+    def update?
+        @current_user.super_admin? ||  @current_user.admin? || @current_user.employee?
     end
 
     def destroy?

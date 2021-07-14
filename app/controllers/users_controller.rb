@@ -16,7 +16,11 @@ class UsersController < ApplicationController
       @user = User.new(user_params)
       @user.save 
       authorize @user
+      if @user.save
       redirect_to users_path, :notice => "User Added."
+      else
+        redirect_to new_user_path, :notice => "Email is already taken or Password Mismatch!"
+      end
 
     end
     

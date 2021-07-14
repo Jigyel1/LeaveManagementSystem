@@ -4,6 +4,7 @@ class User < ApplicationRecord
   enum role: [:super_admin, :admin, :employee]
 	after_initialize :set_default_role, :if => :new_record?
   has_many :notifications, foreign_key: :recipient_id
+
 	def set_default_role
 		self.role ||= :employee
 	end

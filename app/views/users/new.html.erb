@@ -9,7 +9,7 @@
                                 <div class="form-group row">
                                     <label for="fname" class="col-md-4 col-form-label text-md-right">First Name</label>
                                     <div class="col-md-6">
-                                           <%= f.text_field :fname, id: "fname", class: "form-control" %>
+                                           <%= f.text_field :fname, id: "fname", class: "form-control", :required => true %>
                                     </div>
                                 </div><br>
 
@@ -23,35 +23,35 @@
                                 <div class="form-group row">
                                     <label for="dob" class="col-md-4 col-form-label text-md-right">DOB</label>
                                     <div class="col-md-6">
-                                        <%= f.date_field :dob, id: "dob", class: "form-control" %>
+                                        <%= f.date_field :dob, id: "dob", class: "form-control", :required => true%>
                                     </div>
                                 </div><br>
 
                                 <div class="form-group row">
                                     <label for="phone" class="col-md-4 col-form-label text-md-right">Phone</label>
                                     <div class="col-md-6">
-                                      <%= f.text_field :phone, id: "phone", class: "form-control" %>
+                                      <%= f.text_field :phone, id: "phone", class: "form-control", :required => true, :pattern => "[0-9]{8}" %>
                                     </div>
                                 </div><br>
 
                                 <div class="form-group row">
                                     <label for="designation" class="col-md-4 col-form-label text-md-right">Designation</label>
                                     <div class="col-md-6">
-                                        <%= f.text_field :designation, id: "designation", class: "form-control" %>
+                                        <%= f.text_field :designation, id: "designation", class: "form-control", :required => true %>
                                     </div>
                                 </div><br>
 
                                 <div class="form-group row">
                                     <label for="address" class="col-md-4 col-form-label text-md-right">Address</label>
                                     <div class="col-md-6">
-                                        <%= f.text_field :address, id: "address", class: "form-control" %>
+                                        <%= f.text_field :address, id: "address", class: "form-control", :required => true %>
                                     </div>
                                 </div><br>
 
                                 <div class="form-group row">
                                     <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
                                     <div class="col-md-6">
-                                        <%= f.email_field :email, autofocus: true, autocomplete: "email", id: "email", class: "form-control" %>
+                                        <%= f.email_field :email, autofocus: true, autocomplete: "email", id: "email", class: "form-control", :required => true %>
                                     </div>
                                 </div><br>
 
@@ -61,14 +61,14 @@
                                       <% if @minimum_password_length %>
                                          <em>(<%= @minimum_password_length %> characters minimum)</em>
                                       <% end %><br />
-                                      <%= f.password_field :password, autocomplete: "new-password", class: "form-control", id: "password" %>
+                                      <%= f.password_field :password, autocomplete: "new-password", class: "form-control", id: "password", :required => true %>
                                     </div>
                                 </div> <br>
 
                                 <div class="form-group row">
                                     <label for="con_pass" class="col-md-4 col-form-label text-md-right">Confirm Password</label>
                                     <div class="col-md-6">
-                                       <%= f.password_field :password_confirmation, autocomplete: "new-password", id: "con_pass", class: "form-control" %>
+                                       <%= f.password_field :password_confirmation, autocomplete: "new-password", id: "con_pass", class: "form-control", :required => true %>
                                     </div>
                                 </div><br>
 

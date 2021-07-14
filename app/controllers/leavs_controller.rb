@@ -28,6 +28,7 @@ class LeavsController < ApplicationController
   # POST /leavs or /leavs.json
   def create
     @leav = Leav.new(leav_params)
+    authorize @leav
     @leav.user_id = current_user.id
     respond_to do |format|
       if @leav.save
@@ -42,12 +43,13 @@ class LeavsController < ApplicationController
 
   # PATCH/PUT /leavs/1 or /leavs/1.json
   def update
+    authorize @leav
     respond_to do |format|
       if @leav.update(leav_params)
         if current_user.super_admin? || current_user.admin?
           format.html { redirect_to leavs_path, notice: "Feedback provided Successfully." }
           format.json { render :show, status: :created, location: @leav }
-        else
+       else
         format.html { redirect_to profile_index_path, notice: "Leave Successfully updated." }
         format.json { render :show, status: :ok, location: @leav }
         end
