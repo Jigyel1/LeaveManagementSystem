@@ -1,6 +1,6 @@
 # README
 
-# Environment Versions
+# Environment Setup Versions
 1. Ruby Version: 2.7.3p183
 2. Rails Version: 6.1.4
 3. Node.js Version: v14.17.1
