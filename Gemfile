@@ -22,12 +22,10 @@ end
 
 group :development do
   gem 'web-console', '>= 4.1.0'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'factory_bot_rails'
   gem 'rack-mini-profiler', '~> 2.0'
 end
 
-group :test do
-  gem 'capybara', '>= 3.26'
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
-end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
