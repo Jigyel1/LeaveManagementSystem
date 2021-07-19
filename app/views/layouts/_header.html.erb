@@ -1,25 +1,25 @@
-<nav class="navbar navbar-expand-lg navbar-dark">
+<nav class="navbar navbar-expand-lg navbar-dark" >
   <div class="container">
-    <a class="navbar-brand" href="/">LM | System</a>
+    <a class="navbar-brand" style="color:black; font-weight:700; font-size:18px;" href="/">LM | System</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a style="color:white;"  class="nav-link" href="/">Home</a>
+          <a style="color:black; font-weight:700; font-size:17px;"  class="nav-link" href="/">Home</a>
         </li>
 
       <% if current_user %>
           <li class="nav-item">
-            <a class="nav-link" style="color:white;" href="/guides">User Mannual (Guide)</a>
+            <a class="nav-link" style="color:black; font-weight:700; font-size:17px;" href="/guides">User Mannual (Guide)</a>
           </li>
       <% if current_user.super_admin? %>
           <li class="nav-item">
-            <a class="nav-link" style="color:white;" href="/users">User Management</a>
+            <a class="nav-link" style="color:black; font-weight:700; font-size:17px;" href="/users">User Management</a>
           </li>
           <li class="nav-item dropdown">
-            <a style="color:white;"  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a style="color:black; font-weight:700; font-size:17px;"  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Leave Management <span style="background:red;"><%=Leav.where(status: "Pending").count()%></span>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -31,11 +31,11 @@
 
         <%elsif current_user.admin?%>
           <li class="nav-item">
-            <a class="nav-link" style="color:white;" href="/users">User Management</a>
+            <a class="nav-link" style="color:black; font-weight:700; font-size:17px;" href="/users">User Management</a>
           </li>
 
           <li class="nav-item dropdown">
-            <a style="color:white;"  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a style="color:black; font-weight:700; font-size:17px;"  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Leave Management <span style="background:red;"><%=Leav.where(status: "Pending").count()%></span>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -46,7 +46,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" style="color:white;" href="/profile/index">Profile</a>
+            <a class="nav-link" style="color:black; font-weight:700; font-size:17px;" href="/profile/index">Profile</a>
           </li>
           <%else%>
              <%if Notification.where(recipient: current_user).unread%>
@@ -55,14 +55,14 @@
                 </li>
              <%end%>
             <li class="nav-item">
-              <a class="nav-link" style="color:white;" href="/profile/index">Profile</a>
+              <a class="nav-link" style="color:black; font-weight:700; font-size:17px;" href="/profile/index">Profile</a>
             </li>
         <%end%>
       <% end %>
 
         <% if current_user %>
         <li class="nav-item dropdown">
-          <a style="color:white;"  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a style="color:black; font-weight:700; font-size:17px;"  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <%= current_user.email %>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -75,10 +75,10 @@
         </li>
         <%else%>
         <li class="nav-item">
-          <a style="color:white;"  class="nav-link" href="\users\sign_in">Sign In</a>
+          <a style="color:black; font-weight:700; font-size:17px;" class="nav-link" href="\users\sign_in">Sign In</a>
         </li>
         <li class="nav-item">
-          <a style="color:white;"  class="nav-link" href="\users\sign_up">Sign Up</a>
+          <a style="color:black; font-weight:700; font-size:17px;"  class="nav-link" href="\users\sign_up">Sign Up</a>
         </li>
         <% end %>
       </ul>

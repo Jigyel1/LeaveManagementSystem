@@ -111,7 +111,7 @@
                                         <td><%= leav.leave_type%></td>
                                         <td><%= leav.start_date%></td>
                                         <td><%= leav.end_date%></td>
-                                        <td><%= leav.duration%></td>
+                                        <td><%= (leav.start_date..leav.end_date).count - 1 %></td>
                                         <%if leav.status == "Pending" %>
                                            <td style="color:blue;"><%= leav.status%></td>       
                                          <td><%= link_to 'View', leav %>

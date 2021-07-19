@@ -32,7 +32,7 @@ class LeavsController < ApplicationController
     @leav.user_id = current_user.id
     respond_to do |format|
       if @leav.save
-        format.html { redirect_to profile_index_path, notice: "Leav was successfully created." }
+        format.html { redirect_to profile_index_path, notice: "Applied Successfully!." }
         format.json { render :show, status: :created, location: @leav }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -113,6 +113,6 @@ class LeavsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def leav_params
-      params.require(:leav).permit(:leave_type, :start_date, :end_date, :duration, :reason, :feedback)
+      params.require(:leav).permit(:leave_type, :start_date, :end_date, :reason, :feedback)
     end
 end
