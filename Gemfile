@@ -17,14 +17,17 @@ gem 'pundit'
 gem "font-awesome-rails"
 
 group :development, :test do
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'factory_bot_rails'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'faker'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 group :development do
   gem 'web-console', '>= 4.1.0'
-  gem 'rspec-rails'
-  gem 'shoulda-matchers'
-  gem 'factory_bot_rails'
   gem 'rack-mini-profiler', '~> 2.0'
 end
 
