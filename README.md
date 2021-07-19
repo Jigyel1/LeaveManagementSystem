@@ -13,6 +13,9 @@
 4. Seeding: rails db:seed
 5. start Server: rails s
 
+# Live Demo
+https://employee-leave-management-syst.herokuapp.com/
+
 # Credentials
 1. Super_Admin: Email-> admin@admin.com , Password -> admin@123
 2. An Employee: Email-> tester1@gmail.com , Password -> test@123
