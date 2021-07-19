@@ -21,6 +21,7 @@
                 </div>
               </div>
               <div class="card mt-3">
+              <%if current_user.employee?%>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                     <h6 class="mb-0" style="color:green;">Approved Leave</h6>
@@ -35,6 +36,7 @@
                     <span class="text-secondary"><%=Leav.where(user_id: current_user.id, status: "Approved").count()%></span>
                   </li>
                 </ul>
+                <%end%>
               </div>
             </div>
             <div class="col-md-8">
@@ -84,6 +86,7 @@
                 </div>
               </div>
 
+              <%if current_user.employee?%>
               <div class="row gutters-sm">
                 <div class="col-md-18">
                   <div class="card">
@@ -129,3 +132,5 @@
                     </div>
                   </div>
                 </div>
+                </div>
+                <%end%>
