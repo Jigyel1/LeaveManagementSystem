@@ -11,6 +11,9 @@
         </li>
 
       <% if current_user %>
+          <li class="nav-item">
+            <a class="nav-link" style="color:white;" href="/guides">User Mannual (Guide)</a>
+          </li>
       <% if current_user.super_admin? %>
           <li class="nav-item">
             <a class="nav-link" style="color:white;" href="/users">User Management</a>

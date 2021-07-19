@@ -17,20 +17,4 @@
   </div>
   <br>
   <%end%>
-
-
-  <% Notification.where(recipient: current_user).each do |notification|%>
-  <div class="card notification-card notification-danger"  id="c">
-    <div class="card-body">
-       <table>
-        <tr>
-          <td>No New Notifications!</td>
-          <%break;%>
-        </tr>
-      </table>
-    </div>
-  </div>
-  <br>
-  <%end%>
-
 </div>

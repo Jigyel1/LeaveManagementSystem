@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   end
   get 'profile/index'
   devise_for :users
+  resources :guides
   root 'home#index'
   resources :users do
     collection do

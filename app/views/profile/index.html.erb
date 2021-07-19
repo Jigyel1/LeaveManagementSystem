@@ -114,9 +114,9 @@
                                         <td><%= leav.duration%></td>
                                         <%if leav.status == "Pending" %>
                                            <td style="color:blue;"><%= leav.status%></td>       
-                                         <td><%= link_to 'Show', leav %>
+                                         <td><%= link_to 'View', leav %>
                                          <%= link_to 'Edit', edit_leav_path(leav) %>
-                                          <%= link_to 'Destroy', leav, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                                          <%= link_to 'Delete', leav, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                                         <%elsif leav.status == "Approved"%>
                                               <td style="color:green;"><%= leav.status%></td>    
                                               <td><%= link_to 'Show', leav %></td>

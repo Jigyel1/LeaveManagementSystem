@@ -1,0 +1,30 @@
+<div class="container" style="margin-top:2%;">
+    <div class="container card">
+        <div class="card-title" style="padding-top:20px;padding-left:25px;"><h1>Guide</h1></div>
+        <hr>
+      <div class="card-body" style="padding:2%;"> 
+      <%if current_user.employee?%>
+        <h3>-> How to apply for leave?</h3>
+        <ul style="font-size:18px;">
+            <li>Your admin will ceate an account or you can register/sign up with the system.</li>
+            <li>Once registered, you can log In to the system and apply for leave by clicking on <a class="btn btn-primary" href="/leavs/new">Apply</a> button available in HomePage.</li>
+            <li>You can view your leave details in the profile page.</li>
+            <li>Once admin confirms your leave, he/she will notify you. You will recieve the notification about the leave status in notification page.</li>
+            </ul>
+        <%else%>
+        <h3>-> User Management</h3>
+        <ul style="font-size:18px;">
+            <li>You can add new user, delete a user or change the role of user if you are registered as super_admin. If you are registered as admin, you can only register/add new user from the user management page.</li>
+            
+            </ul>
+        <h3>-> Leave Management</h3>
+        <ul style="font-size:18px;">
+            <li>Upon recieving the leave applicants, the leave management counter available on navigation bar will be activated indicating number for applicants for the leave.</li>
+            <li>All the pending leaves will be in the inbox section of the leave management page.</li>
+            <li>You can approve/reject the applied leave by clicking on approve/reject button available in inbox leaves action column.</li>
+            <li>Once you click on approve/reject button, the user will be automatically notifed.</li>
+            <li>After rejection/approval of leave, you can provide the leave feedback from <a href="/leavs/approved_leaves">Approved</a>/<a href="/leavs/rejected_leaves">Rejected</a> leaves page.</li>
+            </ul>
+            <%end%>
+      </div>
+    </div>
