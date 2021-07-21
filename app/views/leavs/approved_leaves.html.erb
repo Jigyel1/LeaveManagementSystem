@@ -7,7 +7,7 @@
             <table class="table table-striped table-hover">
               <thead>
                 <tr style="text-align: center;">
-                  <th>Leave ID</th>
+                  <th>Email</th>
                   <th>Leave type</th>
                   <th>Start date</th>
                   <th>End date</th>
@@ -19,7 +19,7 @@
               <tbody style="text-align:center;">
                 <% @leavs.each do |leav| %>
                       <tr>
-                        <td><%= link_to leav.id, leav %></td>
+                        <td><%= link_to leav.user.email, leav %></td>
                         <td><%= leav.leave_type %></td>
                         <td><%= leav.start_date %></td>
                         <td><%= leav.end_date %></td>
